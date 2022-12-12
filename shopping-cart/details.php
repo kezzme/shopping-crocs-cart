@@ -3,17 +3,15 @@
     require'products.php';
 
     if(isset($_POST['Process'])){
-        if(isset($_SESSION['cartItems'][$_POST['cartkey']][$_POST['radColor']]))
-            $_SESSION['cartItems'][$_POST['cartkey']][$_POST['radColor']] += $_POST['qty']; 
+        if(isset($_SESSION['cartItems'][$_POST['cartkey']][$_POST['radSize']]))
+            $_SESSION['cartItems'][$_POST['cartkey']][$_POST['radSize']] += $_POST['qty']; 
         else
-            $_SESSION['cartItems'][$_POST['cartkey']][$_POST['radColor']] = $_POST['qty']; 
+            $_SESSION['cartItems'][$_POST['cartkey']][$_POST['radSize']] = $_POST['qty']; 
 
         $_SESSION['totalQuantity'] += $_POST['qty'];
         header("location: confirm.php");
     }
    
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,22 +64,27 @@
                                            </p>
                                            <hr>
                                            <input type="hidden" name="cartkey" value="<?php echo $_GET['itemkey']; ?>">
-                                           <label ><h4>Select Color:</h4></label><br>
-                                           <input type="radio" name="radColor" id="radBlack" value="Black" checked>
-                                           <label for="radBlack">Black</label>
-                                           <input type="radio" name="radColor" id="radRed" value="Red">
-                                           <label for="radRed">Red</label>
-                                           <input type="radio" name="radColor" id="radGreen" value="Green">
-                                           <label for="radGreen">Green</label>
-                                           <input type="radio" name="radColor" id="radBlue" value="Blue">
-                                           <label for="radBlue">Blue</label>
-                                           <hr>
-                                           <label for=""><h4>Enter Quantity:</h4></label><br>
-                                           <input type="number" name="qty" id="qty" placeholder="0" min="1" max="100" class="form-control" required><br>
-                                           <button class="btn btn-dark btn-lg" type="submit" name="Process">Confirm Product Purchase</button>
-                                           <a href="index.php" class="btn btn-danger btn-lg"><i class="fa fa-arrow-left"></i> Cancel / Go Back</a>
-                                       </div>
-                                   </div>
+                                           <input type="radio" name="radSize" id="radXS" value="39" checked>
+                        <label for="radXS" class="pr-3">39</label>
+                        <input type="radio" name="radSize" id="radSM" value="40">
+                        <label for="radSM" class="pr-3">40</label>
+                        <input type="radio" name="radSize" id="radMD" value="41">
+                        <label for="radMD" class="pr-3">41</label>
+                        <input type="radio" name="radSize" id="radLG" value="42">
+                        <label for="radLG" class="pr-3">42</label>
+                        <input type="radio" name="radSize" id="radXL" value="43">
+                        <label for="radXL" class="pr-3">43</label>
+                        <input type="radio" name="radSize" id="radXL" value="44">
+                        <label for="radXL" class="pr-3">44</label>  
+                        <input type="radio" name="radSize" id="radXL" value="45">
+                        <label for="radXL" class="pr-3">45</label>                     
+                        <hr>
+                         <label for=""><h4>Enter Quantity:</h4></label><br>
+                          <input type="number" name="qty" id="qty" placeholder="0" min="1" max="100" class="form-control" required><br>
+                          <button class="btn btn-dark btn-lg" type="submit" name="Process">Confirm Product Purchase</button>
+                          <a href="index.php" class="btn btn-danger btn-lg"><i class="fa fa-arrow-left"></i> Cancel / Go Back</a>
+             </div>
+        </div>
                     <?php  
                         else:
                             echo "No Product Found!";

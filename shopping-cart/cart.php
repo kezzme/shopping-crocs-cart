@@ -5,18 +5,18 @@
     $_SESSION['totalAmount'] = 0;
 
     if(isset($_POST['btnUpdate'])) {
-        if(isset($_POST['hdnKey'])&&isset($_POST['hdnColor'])&& isset( $_POST['txtQuantity'])) {
+        if(isset($_POST['hdnKey'])&&isset($_POST['hdnSize'])&& isset( $_POST['txtQuantity'])) {
             $cartKeys = $_POST['hdnKey'];
-            $cartColor = $_POST['hdnColor'];
+            $cartSize = $_POST['hdnSize'];
             $cartQuantities = $_POST['txtQuantity'];
         }
-        if(isset($cartKeys) && isset($cartColor) && isset($cartQuantities)) {
+        if(isset($cartKeys) && isset($cartSize) && isset($cartQuantities)) {
             
             $_SESSION['totalQuantity'] = 0;
 
             foreach($cartKeys as $index => $key) {
-                print_r($_SESSION['cartItems']);
-                $_SESSION['cartItems'][$key][$cartColor[$index]] = $cartQuantities[$index];
+                
+                $_SESSION['cartItems'][$key][$cartSize[$index]] = $cartQuantities[$index];
                 $_SESSION['totalQuantity'] += $cartQuantities[$index];
             }
         }
@@ -77,7 +77,7 @@
                                                 <td><?php echo $color; ?></td>
                                                 <td>
                                                     <input type="hidden" name="hdnKey[]" value="<?php echo $key; ?>">
-                                                    <input type="hidden" name="hdnColor[]" value="<?php echo $color; ?>">
+                                                    <input type="hidden" name="hdnSize[]" value="<?php echo $color; ?>">
                                                     <input type="number" name="txtQuantity[]" value="<?php echo $quantity; ?>" class="form-control text-center" min="1" max="100" required style="width: 150px;">
                                                 </td>
                                                 <td>₱ <?php echo number_format($arrProducts[$key]['price'], 2); ?></td>

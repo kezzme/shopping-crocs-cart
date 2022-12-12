@@ -16,10 +16,7 @@
         }
         else
             echo 'ERROR: Could not execute your request!';
-        
-
-
-    require_once('closecon.php');
+            require_once('closecon.php');
 
     if(isset($_POST['btnLogin'])){
         if($_POST['username'] === $username  && $_POST['password'] === $password){
@@ -30,6 +27,7 @@
         
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,10 +45,8 @@
                 <div class="col-1">
                     <h1><img src="/img/crocs.png" width="180px" ></h1>
                 </div>
-               
-                
             </div>
-            <hr> 
+          <hr> 
 
 <section class="vh-100">
   <div class="container-fluid h-custom mt-5">
@@ -61,14 +57,13 @@
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
       <form method="post">
-          <!-- Email input -->
+         
           <div class="form-outline mb-1">
             <input id="username" name="username" type="text" class="form-control form-control-lg"
               placeholder="Enter Username" />
             <label class="form-label" for="form3Example3"></label>
           </div>
 
-          <!-- Password input -->
           <div class="form-outline mb-1">
             <input id="password" name="password" type="password" class="form-control form-control-lg"
               placeholder="Enter password" />
@@ -85,23 +80,6 @@
     </div>
   </div>
   </div>
-  
-
-
-
-   
-    <!-- <form method="post">
-        <div class="dialog mt-5">
-        <h1><img src="/img/crocs.png" width="180px" ></h1>
-            <input id="username" name="username" type="text" placeholder="User Name"><br>
-            <input id="password" name="password" type="password" placeholder="Password"><br>
-            <button id="btnLogin" name="btnLogin" type="submit">Login</button>
-            <a href="index.php" class="btn btn-dark col-12 border mt-1 rounded-pill">Cancel</a>
-        </div>
-        
-    </form> -->
-   
-   
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </body>
